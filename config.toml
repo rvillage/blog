@@ -1,0 +1,82 @@
+baseurl = "https://rvillage.github.io/blog/"
+# Deployment via /docs folder on master branch
+publishDir = "docs"
+
+title = "ブログタイトル"
+theme = "hugo-universal-theme"
+languageCode = "jp-ja"
+# Enable comments by entering your Disqus shortname
+# disqusShortname = ""
+# Enable Google Analytics by entering your tracking code
+googleAnalytics = ""
+
+# Define the number of posts per page
+paginate = 4
+
+[params]
+    viewMorePostLink = "/blog/"
+    author = "rvillage"
+
+    # Google Maps API key (if not set will default to not passing a key.)
+#    googleMapsApiKey = ""
+
+    # Style options: default (light-blue), blue, green, marsala, pink, red, turquoise, violet
+    style = "turquoise"
+
+    # Since this template is static, the contact form uses www.formspree.io as a
+    # proxy. The form makes a POST request to their servers to send the actual
+    # email. Visitors can send up to a 1000 emails each month for free.
+    #
+    # What you need to do for the setup?
+    #
+    # - set your email address under 'email' below
+    # - upload the generated site to your server
+    # - send a dummy email yourself to confirm your account
+    # - click the confirm link in the email from www.formspree.io
+    # - you're done. Happy mailing!
+    #
+    # Enable the contact form by entering your Formspree.io email
+#    email = ""
+
+    about_us = ""
+    copyright = "Copyright (c) 2017, all rights reserved."
+
+    # Format dates with Go's time formatting
+    date_format = "January 2, 2006"
+
+#    logo = ""
+#    address = ""
+#    latitude = ""
+#    longitude = ""
+
+[Permalinks]
+    blog = "/blog/:year/:month/:day/:filename/"
+
+[[params.menu]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+[[params.menu]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 2
+
+# Enable and disable widgets for the right sidebar
+[params.widgets]
+    search = true
+    categories = true
+    tags = true
+
+[params.see_more]
+    enable = true
+    icon = "fa fa-diamond"
+    title = "ブログタイトル"
+    subtitle = "ブログ説明"
+    link_url = "/blog"
+    link_text = "Check Blogs"
+
+[params.recent_posts]
+    enable = true
+    title = "Resent Posts"
+#    subtitle = ""
