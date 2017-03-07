@@ -2,7 +2,7 @@ baseurl = "https://rvillage.github.io/blog/"
 # Deployment via /docs folder on master branch
 publishDir = "docs"
 
-title = "ブログタイトル"
+title = "(仮)ブログタイトル"
 theme = "hugo-universal-theme"
 languageCode = "jp-ja"
 # Enable comments by entering your Disqus shortname
@@ -50,16 +50,16 @@ paginate = 4
 #    longitude = ""
 
 [Permalinks]
-    blog = "/blog/:year/:month/:day/:filename/"
+    blog = "/:year:month:day/:slug/"
 
 [[params.menu]]
     name = "Home"
-    url = "/"
+    url = "/blog/"
     weight = 1
 
 [[params.menu]]
     name = "Blog"
-    url = "/blog/"
+    url = "/blog/blog/"
     weight = 2
 
 # Enable and disable widgets for the right sidebar
@@ -71,10 +71,10 @@ paginate = 4
 [params.see_more]
     enable = true
     icon = "fa fa-diamond"
-    title = "ブログタイトル"
-    subtitle = "ブログ説明"
-    link_url = "/blog"
-    link_text = "Check Blogs"
+    title = "(仮)ブログタイトル"
+    subtitle = "(仮)ブログ説明"
+    link_url = "/blog/blog/"
+    link_text = "Check Posts"
 
 [params.recent_posts]
     enable = true
