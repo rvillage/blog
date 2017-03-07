@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://rvillage.github.io/blog/20170307/github_pages_to_hugo_01/</loc>
+    <lastmod>2017-03-07T09:30:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rvillage.github.io/blog/</loc>
+    <lastmod>2017-03-07T09:30:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://rvillage.github.io/blog/blog/</loc>
+    <lastmod>2017-03-07T09:30:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://rvillage.github.io/blog/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://rvillage.github.io/blog/categories/github-pages/</loc>
+    <lastmod>2017-03-07T09:30:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://rvillage.github.io/blog/tags/hugo/</loc>
+    <lastmod>2017-03-07T09:30:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://rvillage.github.io/blog/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

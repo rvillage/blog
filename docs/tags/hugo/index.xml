@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on (仮)ブログタイトル</title>
+    <link>https://rvillage.github.io/blog/tags/hugo/index.xml</link>
+    <description>Recent content in Hugo on (仮)ブログタイトル</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>jp-ja</language>
+    <copyright>Copyright (c) 2017, all rights reserved.</copyright>
+    <atom:link href="https://rvillage.github.io/blog/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Hugo導入①</title>
+      <link>https://rvillage.github.io/blog/20170307/github_pages_to_hugo_01/</link>
+      <pubDate>Tue, 07 Mar 2017 09:30:00 +0900</pubDate>
+      
+      <guid>https://rvillage.github.io/blog/20170307/github_pages_to_hugo_01/</guid>
+      <description>
+
+&lt;h2 id=&#34;手順①&#34;&gt;手順①&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;hoge&lt;/li&gt;
+&lt;li&gt;fuga&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
