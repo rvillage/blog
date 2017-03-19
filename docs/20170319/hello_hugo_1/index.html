@@ -7,7 +7,7 @@
   <meta name="googlebot" content="index,follow,snippet,archive">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Hugo導入①</title>
+  <title>GitHub PagesにHugoでブログを作りました①</title>
 
   <meta name="author" content="" />
   <meta name="keywords" content="">
@@ -48,9 +48,9 @@
   <link rel="alternate" href="https://rvillage.github.io/index.xml" type="application/rss+xml" title="(仮)ブログタイトル">
 
   
-  <meta property="og:title" content="Hugo導入①" />
+  <meta property="og:title" content="GitHub PagesにHugoでブログを作りました①" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="/blog/20170307/github_pages_to_hugo_01//" />
+  <meta property="og:url" content="/blog/20170319/hello_hugo_1//" />
   <meta property="og:image" content="" />
 
 </head>
@@ -69,9 +69,9 @@
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand home" href="https://rvillage.github.io/blog/">
-                    <img src="https://rvillage.github.io/blog/img/logo.png" alt="Hugo導入① logo" class="hidden-xs hidden-sm">
-                    <img src="https://rvillage.github.io/blog/img/logo-small.png" alt="Hugo導入① logo" class="visible-xs visible-sm">
-                    <span class="sr-only">Hugo導入① - go to homepage</span>
+                    <img src="https://rvillage.github.io/blog/img/logo.png" alt="GitHub PagesにHugoでブログを作りました① logo" class="hidden-xs hidden-sm">
+                    <img src="https://rvillage.github.io/blog/img/logo-small.png" alt="GitHub PagesにHugoでブログを作りました① logo" class="visible-xs visible-sm">
+                    <span class="sr-only">GitHub PagesにHugoでブログを作りました① - go to homepage</span>
                 </a>
                 <div class="navbar-buttons">
                     <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
@@ -128,7 +128,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Hugo導入①</h1>
+                <h1>GitHub PagesにHugoでブログを作りました①</h1>
             </div>
         </div>
     </div>
@@ -144,17 +144,153 @@
 
                     <div class="col-md-9" id="blog-post">
 
-                        <p class="text-muted text-uppercase mb-small text-right">March 7, 2017</p>
+                        <p class="text-muted text-uppercase mb-small text-right">March 19, 2017</p>
 
                         <div id="post-content">
                           
 
-<h2 id="手順①">手順①</h2>
+<p>GitHub Pagesでブログ公開できるようにしました。</p>
+
+<p>試行錯誤しながら作っているので備忘録もかねて書いていきます。</p>
+
+<h2 id="できるようになること">できるようになること</h2>
+
+<ul>
+<li>Macのローカル環境でプレビュー</li>
+<li><code>_MY_ACCOUNT_.github.io/blog</code>に公開</li>
+</ul>
+
+<h2 id="hugoセットアップ">Hugoセットアップ</h2>
+
+<p>MacにHugoをインストールします。</p>
+
+<pre><code class="language-sh">$ brew install hugo
+</code></pre>
+
+<p><code>github.io/blog</code>で公開したいので、リポジトリ名を意識して<code>hugo new</code>します。</p>
+
+<pre><code class="language-sh">$ hugo new site blog
+$ cd blog
+</code></pre>
+
+<p><a href="http://themes.gohugo.io/">テーマ</a>を選んでインストールします。</p>
+
+<p>ものによってはBlog向きではないのもあるので、いろいろ見てみてください。</p>
+
+<p><a href="http://themes.gohugo.io/hugo-universal-theme/">Universal</a>を使いました。</p>
+
+<pre><code class="language-sh">$ git clone --depth 1 --recursive https://github.com/devcows/hugo-universal-theme.git themes
+</code></pre>
+
+<p>themesディレクトリにcloneされるので、テーマ用データ中の<code>config.toml</code>をblogディレクトリ直下にコピーします。</p>
+
+<pre><code class="language-sh">blog/
+  ...
+  themes/
+    hugo-universal-theme/
+      exampleSite/
+        content/
+        data/
+        static/
+        .gitignore
+        config.toml
+</code></pre>
+
+<h2 id="記事を作ってプレビューしてみる">記事を作ってプレビューしてみる</h2>
+
+<p>まずは記事を作ります。</p>
+
+<p><code>hugo new</code>で作ったmdファイルは、contentディレクトリ配下に生成されます。</p>
+
+<p>インストールしたテーマによってcontent配下の名前は変わってくるので確認しておいてください。</p>
+
+<pre><code class="language-sh">$ hugo new blog/hello_world.md
+$ vi content/blog/hello_world.md
+</code></pre>
+
+<pre><code class="language-md">+++
+tags = [&quot;hugo&quot;]
+categories = [&quot;hello world&quot;]
++++
+
+# Hello World
+hello world
+</code></pre>
+
+<p>ここまでできたら、さっそくプレビューしてみましょう。</p>
+
+<p>ローカル環境でwebサーバが起動するので、<code>localhost:1313</code>でアクセス可能です。</p>
+
+<pre><code class="language-sh">$ hugo server
+</code></pre>
+
+<h2 id="github-pagesで公開する">Github Pagesで公開する</h2>
+
+<p>Gighub Pagesでなんらかのサイト公開する方法は大きく3種類あります。</p>
 
 <ol>
-<li>hoge</li>
-<li>fuga</li>
+<li><code>_MY_ACCOUNT_.github.io</code>リポジトリを作成して、masterブランチにサイトデータをpushする</li>
+<li>好きな名前のリポジトリを作成して、<code>gh-pages</code>ブランチにサイトデータをpushする</li>
+<li>2.と同様に好きな名前リポジトリを作成して、<code>docs</code>ディレクトリにサイトデータをpushする</li>
 </ol>
+
+<p>1.は、<code>_MY_ACCOUNT_.github.io</code>でアクセスするwebサイトを公開できます。2.と3.は<code>_MY_ACCOUNT_.github.io/_repository名_</code>でアクセスするwebサイトを公開できます。</p>
+
+<p>今回は3.の方法で<code>rvillage.github.io/blog</code>に公開するので、Githubで<code>blog</code>リポジトリを作成しておきます。</p>
+
+<p>そのリポジトリに、<code>hugo new</code>で生成した<code>blog</code>ディレクトリをpushします。</p>
+
+<pre><code class="language-sh">$ git commit --message &quot;Initial commit&quot;
+$ git push
+</code></pre>
+
+<p>次に公開用データを作ってpushします。</p>
+
+<p>まずは、docsディレクトリの作成と、<code>config.toml</code>を修正します。</p>
+
+<pre><code class="language-sh">$ mkdir docs
+</code></pre>
+
+<pre><code class="language-toml:config.toml"># config.toml
+baseurl = &quot;https://rvillage.github.io/blog/&quot;
+publishDir = &quot;docs&quot;
+</code></pre>
+
+<p>次に、サイトデータを生成します。</p>
+
+<pre><code class="language-sh">$ hugo
+</code></pre>
+
+<p>docsディレクトリ配下にサイトデータが生成されるので、pushします。</p>
+
+<pre><code class="language-sh">$ git commit --message &quot;Publishing hello_world.md&quot;
+$ git push
+</code></pre>
+
+<p>pushしたら、githubのblogリポジトリページで、<code>Settings -&gt; GitHub Pages -&gt; Source</code>で<code>master branch /docs folder</code>を設定します。</p>
+
+<p><code>_MY_ACCOUNT_.github.io/blog</code>にアクセスすると、作成したサイトが表示されます。</p>
+
+<h2 id="まとめ">まとめ</h2>
+
+<p>これで、Github Pagesでサイト公開できるようになったと思います。</p>
+
+<p>ただ、あくまでサイト公開できただけでまだまだ（仮）レベルのものです。</p>
+
+<p>ざっとやりたいことを考えてみてもたくさん出てきますので、第②回に続きます。</p>
+
+<ol>
+<li>ブログタイトル</li>
+<li>バナー</li>
+<li>ソーシャルリンク</li>
+<li>Google Analytics</li>
+</ol>
+
+<h2 id="参考サイト">参考サイト</h2>
+
+<ul>
+<li><a href="https://gohugo.io/tutorials/github-pages-blog/#deployment-via-docs-folder-on-master-branch">https://gohugo.io/tutorials/github-pages-blog/#deployment-via-docs-folder-on-master-branch</a></li>
+</ul>
 
                         </div>
                         
@@ -280,14 +416,14 @@
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
-                        <a href="https://rvillage.github.io/blog/20170307/github_pages_to_hugo_01/">
+                        <a href="https://rvillage.github.io/blog/20170319/hello_hugo_1/">
                           
-                            <img src="https://rvillage.github.io/blog/img/banners/banner-1.jpg" class="img-responsive" alt="">
+                            <img src="https://rvillage.github.io/blog/img/placeholder.png" class="img-responsive" alt="">
                           
                         </a>
                     </div>
                     <div class="name same-height-always">
-                        <h5><a href="https://rvillage.github.io/blog/20170307/github_pages_to_hugo_01/">Hugo導入①</a></h5>
+                        <h5><a href="https://rvillage.github.io/blog/20170319/hello_hugo_1/">GitHub PagesにHugoでブログを作りました①</a></h5>
                     </div>
                 </div>
                 

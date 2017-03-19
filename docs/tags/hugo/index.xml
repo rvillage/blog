@@ -10,19 +10,155 @@
     <atom:link href="https://rvillage.github.io/blog/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Hugo導入①</title>
-      <link>https://rvillage.github.io/blog/20170307/github_pages_to_hugo_01/</link>
-      <pubDate>Tue, 07 Mar 2017 09:30:00 +0900</pubDate>
+      <title>GitHub PagesにHugoでブログを作りました①</title>
+      <link>https://rvillage.github.io/blog/20170319/hello_hugo_1/</link>
+      <pubDate>Sun, 19 Mar 2017 21:19:14 +0900</pubDate>
       
-      <guid>https://rvillage.github.io/blog/20170307/github_pages_to_hugo_01/</guid>
+      <guid>https://rvillage.github.io/blog/20170319/hello_hugo_1/</guid>
       <description>
 
-&lt;h2 id=&#34;手順①&#34;&gt;手順①&lt;/h2&gt;
+&lt;p&gt;GitHub Pagesでブログ公開できるようにしました。&lt;/p&gt;
+
+&lt;p&gt;試行錯誤しながら作っているので備忘録もかねて書いていきます。&lt;/p&gt;
+
+&lt;h2 id=&#34;できるようになること&#34;&gt;できるようになること&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Macのローカル環境でプレビュー&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;_MY_ACCOUNT_.github.io/blog&lt;/code&gt;に公開&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;hugoセットアップ&#34;&gt;Hugoセットアップ&lt;/h2&gt;
+
+&lt;p&gt;MacにHugoをインストールします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ brew install hugo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;github.io/blog&lt;/code&gt;で公開したいので、リポジトリ名を意識して&lt;code&gt;hugo new&lt;/code&gt;します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ hugo new site blog
+$ cd blog
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://themes.gohugo.io/&#34;&gt;テーマ&lt;/a&gt;を選んでインストールします。&lt;/p&gt;
+
+&lt;p&gt;ものによってはBlog向きではないのもあるので、いろいろ見てみてください。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://themes.gohugo.io/hugo-universal-theme/&#34;&gt;Universal&lt;/a&gt;を使いました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ git clone --depth 1 --recursive https://github.com/devcows/hugo-universal-theme.git themes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;themesディレクトリにcloneされるので、テーマ用データ中の&lt;code&gt;config.toml&lt;/code&gt;をblogディレクトリ直下にコピーします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;blog/
+  ...
+  themes/
+    hugo-universal-theme/
+      exampleSite/
+        content/
+        data/
+        static/
+        .gitignore
+        config.toml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;記事を作ってプレビューしてみる&#34;&gt;記事を作ってプレビューしてみる&lt;/h2&gt;
+
+&lt;p&gt;まずは記事を作ります。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;hugo new&lt;/code&gt;で作ったmdファイルは、contentディレクトリ配下に生成されます。&lt;/p&gt;
+
+&lt;p&gt;インストールしたテーマによってcontent配下の名前は変わってくるので確認しておいてください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ hugo new blog/hello_world.md
+$ vi content/blog/hello_world.md
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-md&#34;&gt;+++
+tags = [&amp;quot;hugo&amp;quot;]
+categories = [&amp;quot;hello world&amp;quot;]
++++
+
+# Hello World
+hello world
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ここまでできたら、さっそくプレビューしてみましょう。&lt;/p&gt;
+
+&lt;p&gt;ローカル環境でwebサーバが起動するので、&lt;code&gt;localhost:1313&lt;/code&gt;でアクセス可能です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ hugo server
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;github-pagesで公開する&#34;&gt;Github Pagesで公開する&lt;/h2&gt;
+
+&lt;p&gt;Gighub Pagesでなんらかのサイト公開する方法は大きく3種類あります。&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;hoge&lt;/li&gt;
-&lt;li&gt;fuga&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;_MY_ACCOUNT_.github.io&lt;/code&gt;リポジトリを作成して、masterブランチにサイトデータをpushする&lt;/li&gt;
+&lt;li&gt;好きな名前のリポジトリを作成して、&lt;code&gt;gh-pages&lt;/code&gt;ブランチにサイトデータをpushする&lt;/li&gt;
+&lt;li&gt;2.と同様に好きな名前リポジトリを作成して、&lt;code&gt;docs&lt;/code&gt;ディレクトリにサイトデータをpushする&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;p&gt;1.は、&lt;code&gt;_MY_ACCOUNT_.github.io&lt;/code&gt;でアクセスするwebサイトを公開できます。2.と3.は&lt;code&gt;_MY_ACCOUNT_.github.io/_repository名_&lt;/code&gt;でアクセスするwebサイトを公開できます。&lt;/p&gt;
+
+&lt;p&gt;今回は3.の方法で&lt;code&gt;rvillage.github.io/blog&lt;/code&gt;に公開するので、Githubで&lt;code&gt;blog&lt;/code&gt;リポジトリを作成しておきます。&lt;/p&gt;
+
+&lt;p&gt;そのリポジトリに、&lt;code&gt;hugo new&lt;/code&gt;で生成した&lt;code&gt;blog&lt;/code&gt;ディレクトリをpushします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ git commit --message &amp;quot;Initial commit&amp;quot;
+$ git push
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;次に公開用データを作ってpushします。&lt;/p&gt;
+
+&lt;p&gt;まずは、docsディレクトリの作成と、&lt;code&gt;config.toml&lt;/code&gt;を修正します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ mkdir docs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-toml:config.toml&#34;&gt;# config.toml
+baseurl = &amp;quot;https://rvillage.github.io/blog/&amp;quot;
+publishDir = &amp;quot;docs&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;次に、サイトデータを生成します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ hugo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;docsディレクトリ配下にサイトデータが生成されるので、pushします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ git commit --message &amp;quot;Publishing hello_world.md&amp;quot;
+$ git push
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;pushしたら、githubのblogリポジトリページで、&lt;code&gt;Settings -&amp;gt; GitHub Pages -&amp;gt; Source&lt;/code&gt;で&lt;code&gt;master branch /docs folder&lt;/code&gt;を設定します。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;_MY_ACCOUNT_.github.io/blog&lt;/code&gt;にアクセスすると、作成したサイトが表示されます。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;これで、Github Pagesでサイト公開できるようになったと思います。&lt;/p&gt;
+
+&lt;p&gt;ただ、あくまでサイト公開できただけでまだまだ（仮）レベルのものです。&lt;/p&gt;
+
+&lt;p&gt;ざっとやりたいことを考えてみてもたくさん出てきますので、第②回に続きます。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;ブログタイトル&lt;/li&gt;
+&lt;li&gt;バナー&lt;/li&gt;
+&lt;li&gt;ソーシャルリンク&lt;/li&gt;
+&lt;li&gt;Google Analytics&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;参考サイト&#34;&gt;参考サイト&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/tutorials/github-pages-blog/#deployment-via-docs-folder-on-master-branch&#34;&gt;https://gohugo.io/tutorials/github-pages-blog/#deployment-via-docs-folder-on-master-branch&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

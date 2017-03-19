@@ -148,15 +148,15 @@
                             <div class="row">
                                 <div class="col-md-4">
                                   <div class="image">
-                                      <a href="https://rvillage.github.io/blog/20170307/github_pages_to_hugo_01/">
+                                      <a href="https://rvillage.github.io/blog/20170319/hello_hugo_1/">
                                           
-                                          <img src="https://rvillage.github.io/blog/img/banners/banner-1.jpg" class="img-responsive" alt="">
+                                          <img src="https://rvillage.github.io/blog/img/placeholder.png" class="img-responsive" alt="">
                                           
                                       </a>
                                   </div>
                                 </div>
                                 <div class="col-md-8">
-                                    <h2><a href="https://rvillage.github.io/blog/20170307/github_pages_to_hugo_01/">Hugo導入①</a></h2>
+                                    <h2><a href="https://rvillage.github.io/blog/20170319/hello_hugo_1/">GitHub PagesにHugoでブログを作りました①</a></h2>
                                     <div class="clearfix">
                                         <p class="author-category">
                                           
@@ -168,11 +168,22 @@
 
                                         </p>
                                         <p class="date-comments">
-                                            <a href="https://rvillage.github.io/blog/20170307/github_pages_to_hugo_01/"><i class="fa fa-calendar-o"></i> March 7, 2017</a>
+                                            <a href="https://rvillage.github.io/blog/20170319/hello_hugo_1/"><i class="fa fa-calendar-o"></i> March 19, 2017</a>
                                         </p>
                                     </div>
-                                    <p class="intro"> 手順①  hoge fuga  </p>
-                                    <p class="read-more"><a href="https://rvillage.github.io/blog/20170307/github_pages_to_hugo_01/" class="btn btn-template-main">Continue reading</a>
+                                    <p class="intro">GitHub Pagesでブログ公開できるようにしました。
+試行錯誤しながら作っているので備忘録もかねて書いていきます。
+できるようになること  Macのローカル環境でプレビュー _MY_ACCOUNT_.github.io/blogに公開  Hugoセットアップ MacにHugoをインストールします。
+$ brew install hugo  github.io/blogで公開したいので、リポジトリ名を意識してhugo newします。
+$ hugo new site blog $ cd blog  テーマを選んでインストールします。
+ものによってはBlog向きではないのもあるので、いろいろ見てみてください。
+Universalを使いました。
+$ git clone --depth 1 --recursive https://github.com/devcows/hugo-universal-theme.git themes  themesディレクトリにcloneされるので、テーマ用データ中のconfig.tomlをblogディレクトリ直下にコピーします。
+blog/ ... themes/ hugo-universal-theme/ exampleSite/ content/ data/ static/ .gitignore config.toml  記事を作ってプレビューしてみる まずは記事を作ります。
+hugo newで作ったmdファイルは、contentディレクトリ配下に生成されます。
+インストールしたテーマによってcontent配下の名前は変わってくるので確認しておいてください。
+$ hugo new blog/hello_world.md $ vi content/blog/hello_world.md  +++ tags = [&quot;hugo&quot;] categories = [&quot;hello world&quot;] +++ # Hello World hello world  ここまでできたら、さっそくプレビューしてみましょう。</p>
+                                    <p class="read-more"><a href="https://rvillage.github.io/blog/20170319/hello_hugo_1/" class="btn btn-template-main">Continue reading</a>
                                     </p>
                                 </div>
                             </div>
@@ -307,14 +318,14 @@
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
-                        <a href="https://rvillage.github.io/blog/20170307/github_pages_to_hugo_01/">
+                        <a href="https://rvillage.github.io/blog/20170319/hello_hugo_1/">
                           
-                            <img src="https://rvillage.github.io/blog/img/banners/banner-1.jpg" class="img-responsive" alt="">
+                            <img src="https://rvillage.github.io/blog/img/placeholder.png" class="img-responsive" alt="">
                           
                         </a>
                     </div>
                     <div class="name same-height-always">
-                        <h5><a href="https://rvillage.github.io/blog/20170307/github_pages_to_hugo_01/">Hugo導入①</a></h5>
+                        <h5><a href="https://rvillage.github.io/blog/20170319/hello_hugo_1/">GitHub PagesにHugoでブログを作りました①</a></h5>
                     </div>
                 </div>
                 

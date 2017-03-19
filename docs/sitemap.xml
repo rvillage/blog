@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://rvillage.github.io/blog/20170307/github_pages_to_hugo_01/</loc>
-    <lastmod>2017-03-07T09:30:00+09:00</lastmod>
+    <loc>https://rvillage.github.io/blog/20170319/hello_hugo_1/</loc>
+    <lastmod>2017-03-19T21:19:14+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://rvillage.github.io/blog/</loc>
-    <lastmod>2017-03-07T09:30:00+09:00</lastmod>
+    <lastmod>2017-03-19T21:19:14+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://rvillage.github.io/blog/blog/</loc>
-    <lastmod>2017-03-07T09:30:00+09:00</lastmod>
+    <lastmod>2017-03-19T21:19:14+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -25,13 +25,13 @@
   
   <url>
     <loc>https://rvillage.github.io/blog/categories/github-pages/</loc>
-    <lastmod>2017-03-07T09:30:00+09:00</lastmod>
+    <lastmod>2017-03-19T21:19:14+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://rvillage.github.io/blog/tags/hugo/</loc>
-    <lastmod>2017-03-07T09:30:00+09:00</lastmod>
+    <lastmod>2017-03-19T21:19:14+09:00</lastmod>
     <priority>0</priority>
   </url>
   
